@@ -1,0 +1,15 @@
+
+venv/
+
+.env
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+static/stego_image.png
+
+
+.vscode/
+.idea/

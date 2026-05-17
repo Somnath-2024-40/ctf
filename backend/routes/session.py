@@ -1,10 +1,8 @@
 from fastapi import APIRouter
 
-
 router = APIRouter(
     tags=["Session"]
 )
-
 
 @router.get("/ping")
 def ping():

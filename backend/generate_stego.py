@@ -1,7 +1,5 @@
-"""
-Run this script once to generate the steganography image for Flag 7.
-Usage: python generate_stego.py
-"""
+# this is for generating the image 
+
 from PIL import Image
 import os
 

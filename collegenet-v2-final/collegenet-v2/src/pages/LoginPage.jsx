@@ -1,6 +1,6 @@
 // src/pages/LoginPage.jsx
 // FLAG{html_source_inspector_1}
-// Admin credentials: admin / admin123 (temporary, change after login)
+// Admin credentials: LeelaMehta / leela123 (temporary, change after login)
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,16 +11,7 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (!user || !pass) { setError('Enter credentials to continue.'); return; }
-  //   setError('');
-  //   setLoading(true);
-  //   setTimeout(() => {
-  //     sessionStorage.setItem('ctf_authed', 'true');
-  //     navigate('/dashboard');
-  //   }, 600);
-  // };
+
 
 
   const handleSubmit = (e) => {

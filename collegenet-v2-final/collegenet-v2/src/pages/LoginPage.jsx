@@ -11,10 +11,28 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState('');
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!user || !pass) { setError('Enter credentials to continue.'); return; }
+  //   setError('');
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     sessionStorage.setItem('ctf_authed', 'true');
+  //     navigate('/dashboard');
+  //   }, 600);
+  // };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!user || !pass) { setError('Enter credentials to continue.'); return; }
     setError('');
+    
+    if (user !== 'LeelaMehta' || pass !== 'leela123') {
+      setError('Invalid credentials.');
+      return;
+    }
+    
     setLoading(true);
     setTimeout(() => {
       sessionStorage.setItem('ctf_authed', 'true');
@@ -22,6 +40,7 @@ export default function LoginPage() {
     }, 600);
   };
 
+  
   return (
     <div className="login-wrap">
       <div className="login-box">

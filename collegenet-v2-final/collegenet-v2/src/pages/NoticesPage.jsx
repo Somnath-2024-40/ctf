@@ -64,7 +64,7 @@ export default function NoticesPage() {
 
         {result && (
           <div className="response-area">
-              <p >  Hope you can find the flag....</p>
+              <p>Click the button and look around... the treasure is closer than you think.</p>
           </div>
         )}
       </div>

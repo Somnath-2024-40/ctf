@@ -32,6 +32,11 @@ export default function LoginPage() {
       setError('Invalid credentials.');
       return;
     }
+
+    if (user !== 'LeelaMehta' || pass !== 'leela123') {
+      setError('Invalid credentials.');
+      return;
+    }
     
     setLoading(true);
     setTimeout(() => {
@@ -40,7 +45,7 @@ export default function LoginPage() {
     }, 600);
   };
 
-  
+
   return (
     <div className="login-wrap">
       <div className="login-box">

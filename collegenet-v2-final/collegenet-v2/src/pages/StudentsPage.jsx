@@ -18,13 +18,19 @@ const COLS = [
   { key: 'year',   label: 'Year',        width: '60px'                            },
   { key: 'cgpa',   label: 'CGPA',        width: '70px',  mono: true               },
   { key: 'status', label: 'Status',      width: '100px'                           },
-  { key: '_action',label: '',            width: '90px'                            },
+  // { key: '_action',label: '',            width: '90px'                            },
 ];
 
 const GRID = COLS.map(c => c.width).join(' ');
 
 function SortIcon({ col, sortKey, sortDir }) {
-  if (col.key === '_action' || col.key === 'status') return null;
+
+
+  // if (col.key === '_action' || col.key === 'status') return null;
+  if (col.key === 'status') return null;
+
+
+
   if (sortKey !== col.key) return <span style={{ opacity: 0.3, fontSize: 10 }}>↕</span>;
   return <span style={{ fontSize: 10 }}>{sortDir === 'asc' ? '↑' : '↓'}</span>;
 }
@@ -53,11 +59,11 @@ function StudentRow({ index, style, data }) {
       <div>{s.year}</div>
       <div style={{ fontFamily:'var(--mono)', fontSize:11 }}>{s.cgpa}</div>
       <div><StatusBadge status={s.status} /></div>
-      <div>
+      {/* <div>
         <Link to={`/students/${s.id}`} className="btn btn-secondary btn-sm">
           View
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -78,23 +84,63 @@ export default function StudentsPage() {
     listRef.current?.scrollTo(0);
   }, [setQuery]);
 
-  const exportCSV = () => {
-    const header = 'ID,Name,Roll,Dept,Year,CGPA,Status\n';
-    const rows = students.map(s =>
-      `${s.id},"${s.name}",${s.roll},"${s.dept}",${s.year},${s.cgpa},${s.status}`
-    ).join('\n');
-    const blob = new Blob([header + rows], { type: 'text/csv' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'students.csv';
-    a.click();
-  };
+  // const exportCSV = () => {
+  //   const header = 'ID,Name,Roll,Dept,Year,CGPA,Status\n';
+  //   const rows = students.map(s =>
+  //     `${s.id},"${s.name}",${s.roll},"${s.dept}",${s.year},${s.cgpa},${s.status}`
+  //   ).join('\n');
+  //   const blob = new Blob([header + rows], { type: 'text/csv' });
+  //   const a = document.createElement('a');
+  //   a.href = URL.createObjectURL(blob);
+  //   a.download = 'students.csv';
+  //   a.click();
+  // };
 
   return (
     <Shell
       title="Student Records"
       subtitle={`${students.length} of ${total} students — AY 2024–25`}
     >
+
+
+
+
+
+    <div style={{
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  background: 'var(--surface2)',
+  border: '1px solid var(--border)',
+  borderRadius: 8,
+  padding: '12px 18px',
+  marginBottom: 16,
+}}>
+  <div>
+    <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 2 }}>Your Student Record</div>
+    <div style={{ fontSize: 12, color: 'var(--text-dim)' }}>
+      View your personal academic details and documents.
+    </div>
+  </div>
+  <Link to="/students/37" className="btn btn-primary btn-sm">
+    Check Your Details
+  </Link>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
         {/* Toolbar */}
         <div style={{
@@ -122,10 +168,10 @@ export default function StudentsPage() {
             <option value="">All Departments</option>
             {depts.map(d => <option key={d} value={d}>{d}</option>)}
           </select>
-
+{/* 
           <button className="btn btn-secondary btn-sm" onClick={exportCSV}>
             <Icon name="download" /> Export CSV
-          </button>
+          </button> */}
 
           <div style={{
             marginLeft:'auto', fontFamily:'var(--mono)', fontSize:11,
@@ -152,10 +198,27 @@ export default function StudentsPage() {
               style={{
                 fontSize: 11, fontWeight: 600, letterSpacing:'0.06em',
                 textTransform:'uppercase', color:'var(--text-dim)',
-                cursor: col.key !== '_action' && col.key !== 'status' ? 'pointer' : 'default',
+
+
+
+
+                // cursor: col.key !== '_action' && col.key !== 'status' ? 'pointer' : 'default',
+                cursor: col.key !== 'status' ? 'pointer' : 'default',
+
+
+
                 display:'flex', alignItems:'center', gap:5, userSelect:'none',
               }}
-              onClick={() => col.key !== '_action' && col.key !== 'status' && toggleSort(col.key)}
+
+
+
+
+              // onClick={() => col.key !== '_action' && col.key !== 'status' && toggleSort(col.key)}
+              onClick={() => col.key !== 'status' && toggleSort(col.key)}
+
+
+
+
             >
               {col.label}
               <SortIcon col={col} sortKey={sortKey} sortDir={sortDir} />

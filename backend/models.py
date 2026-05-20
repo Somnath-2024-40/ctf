@@ -37,3 +37,19 @@ class Student(Base):
     cgpa = Column(String(10))
     status  = Column(String(20))
     hostel = Column(String(50))
+
+
+
+
+
+
+
+
+
+class Document(Base):
+    __tablename__ = "documents"
+
+    id = Column(Integer, primary_key=True, index=True)
+    classification = Column(String(50))
+    content = Column(Text)
+    author = Column(String(100))

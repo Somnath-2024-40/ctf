@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin
+Disallow: /api/
+
+# You shouldn't be here... but since you are:
+# Flag 1 : Q1RGe3JvYm90c190eHRfaXNfd2F0Y2hpbmdfMX0=
+# Flag 2 : PGS{ebobgf_ner_abg_frpher_2}

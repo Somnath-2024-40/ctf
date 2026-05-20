@@ -59,9 +59,23 @@ async def seed_data() -> None:
                 """))
                 await db.commit()
 
+            result = await db.execute(text("SELECT COUNT(*) FROM documents"))
+            if not result.scalar():
+                await db.execute(text("""
+                    INSERT INTO documents (id, classification, content, author) VALUES
+                    (1, 'INTERNAL', 'Semester grade report filed. GPA recorded as 8.4.', 'Academic Office'),
+                    (2, 'INTERNAL', 'Hostel room allotment confirmed for block B-204.', 'Hostel Admin'),
+                    (3, 'CONFIDENTIAL', 'CTF{1d0r_4cc3ss_c0ntr0l_byp4ss}', 'System'),
+                    (4, 'INTERNAL', 'Library dues cleared. No pending fines.', 'Library'),
+                    (5, 'INTERNAL', 'Medical fitness certificate submitted for sports event.', 'Health Center')
+                    ON CONFLICT (id) DO NOTHING
+                """))
+                await db.commit()
+
         except Exception as e:
             print(f"[seed] error: {e}")
             await db.rollback()
+
 
 
 async def generate_stego() -> None:
@@ -91,6 +105,9 @@ app = FastAPI(
     title="CTF Platform",
     version="1.0.0",
     description="CollegeNet CTF — web security challenge platform.",
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None,
 )
 
 app.state.limiter = limiter

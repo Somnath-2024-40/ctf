@@ -54,10 +54,7 @@ export default function SearchPage() {
 
       {result && (
         <>
-          <div className="card" style={{ marginBottom: 16 }}>
-            <div className="card-title">Query Executed</div>
-            <pre>{result.data?.query ?? '—'}</pre>
-          </div>
+
           <div className="card">
             <div className="card-title">Results</div>
             {Array.isArray(result.data?.results) && result.data.results.length > 0 ? (

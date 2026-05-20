@@ -23,7 +23,7 @@ export default function App() {
         <Route path="/search"           element={<SearchPage />} />
         <Route path="/notices"          element={<NoticesPage />} />
         <Route path="/admin"            element={<AdminPage />} />
-        <Route path="/classified"       element={<ClassifiedPage />} />
+        <Route path="/secret"       element={<ClassifiedPage />} />
         <Route path="/stego"            element={<StegoPage />} />
       </Route>
       <Route path="/404" element={<NotFoundPage />} />

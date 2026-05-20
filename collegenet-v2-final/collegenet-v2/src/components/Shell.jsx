@@ -13,7 +13,7 @@ const NAV = [
   ]},
   { group: 'System', items: [
     { to: '/admin',     icon: 'admin',     label: 'Admin Panel' },
-    { to: '/classified',icon: 'classified',label: 'Classified Docs' },
+    // { to: '/classified',icon: 'classified',label: 'Classified Docs' },
     { to: '/stego',     icon: 'stego',     label: 'Media Lab' },
   ]},
 ];

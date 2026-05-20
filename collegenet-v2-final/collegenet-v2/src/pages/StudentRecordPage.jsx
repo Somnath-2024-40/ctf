@@ -98,15 +98,7 @@ export default function StudentRecordPage() {
         </div>
       </div>
 
-      {/* Raw response */}
-      <div className="card">
-        <div className="pre-label">Raw API Response — /challenge/8/documents/{id}</div>
-        <pre>{loading ? 'Loading…' : JSON.stringify(result ?? error, null, 2)}</pre>
-      </div>
 
-      <div style={{ marginTop:16 }}>
-        <Link to="/students" className="btn btn-secondary btn-sm">← Back to Students</Link>
-      </div>
     </Shell>
   );
 }

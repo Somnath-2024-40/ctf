@@ -64,35 +64,7 @@ export default function NoticesPage() {
 
         {result && (
           <div className="response-area">
-            <div className="pre-label" style={{ marginBottom:8 }}>Response Body</div>
-            <pre style={{ marginBottom:16 }}>{JSON.stringify(result.data, null, 2)}</pre>
-
-            <div className="pre-label" style={{ marginBottom:8 }}>Response Headers</div>
-            <div className="card" style={{ padding:0, overflow:'hidden' }}>
-              <div className="table-wrap">
-                <table className="header-table">
-                  <tbody>
-                    {Object.entries(result.headers).map(([k, v]) => {
-                      const isFlag = k.toLowerCase() === 'x-secret-flag';
-                      return (
-                        <tr key={k} style={isFlag ? { background:'rgba(234,179,8,0.06)' } : {}}>
-                          <td style={{
-                            padding:'8px 14px', borderBottom:'1px solid var(--border)',
-                            fontFamily:'var(--mono)', fontSize:11,
-                            color: isFlag ? 'var(--yellow)' : 'var(--text-dim)',
-                          }}>{k}</td>
-                          <td style={{
-                            padding:'8px 14px', borderBottom:'1px solid var(--border)',
-                            fontFamily:'var(--mono)', fontSize:11,
-                            color: isFlag ? 'var(--yellow)' : 'var(--text)',
-                          }}>{String(v)}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+              <p >  Hope you can find the flag....</p>
           </div>
         )}
       </div>

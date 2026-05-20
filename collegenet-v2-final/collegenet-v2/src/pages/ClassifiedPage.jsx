@@ -1,4 +1,4 @@
-// src/pages/ClassifiedPage.jsx
+
 import { useState } from 'react';
 import Shell from '../components/Shell';
 import client from '../api/client';

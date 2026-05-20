@@ -27,12 +27,25 @@ def _decode_jwt_part(part: str) -> dict:
 
 # ── Challenge 2 — Cookie ──────────────────────────────────────────────────────
 
+# @router.get("/2")
+# @limiter.limit("60/minute")
+# def cookie_challenge(request: Request, response: Response):
+#     response.set_cookie(key="portal_session", value=FLAG2, httponly=False, samesite="lax")
+#     return {"message": "Session initialized"}
+
+
+
 @router.get("/2")
 @limiter.limit("60/minute")
 def cookie_challenge(request: Request, response: Response):
-    response.set_cookie(key="portal_session", value=FLAG2, httponly=False, samesite="lax")
+    response.set_cookie(
+        key="portal_session",
+        value=FLAG2,
+        httponly=False,
+        samesite="none",
+        secure=True
+    )
     return {"message": "Session initialized"}
-
 
 # ── Challenge 5 — Header Inspection ──────────────────────────────────────────
 
